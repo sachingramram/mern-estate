@@ -3,7 +3,7 @@ import {useRef,useState,useEffect, useDebugValue} from 'react'
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/storage';
 import { app } from "../firebase";
 import { updateUserStart,updateUserFailure,updateUserSuccess, deleteUserFailure, deleteUserStart, deleteUserSuccess, signOutUserStart } from "../redux/user/userSlice";
-// import { useDispatch } from "react-redux";
+import {Link} from 'react-router-dom';
 
 export default function Profile() {
   const fileRef=useRef(null);
@@ -114,7 +114,7 @@ if(data.success===false){
     <div className='p-3 max-w-lg mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-        <input onChange={(e)=>setFile(e.target.files[0])} type="file" ref={fileRef} hidden accept="image/*"/>
+        <input onChange={(e)=>setFile(e.target.files[0])} type="file" ref={fileRef} hidden accept='image/*'/>
         
         <img onClick={()=>fileRef.current.click()}
          src={formData.avatar || currentUser.avatar} 
@@ -152,6 +152,8 @@ if(data.success===false){
         onChange={handleChange}
         />
         <button disabled={loading} className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 diabled:opacity-80'>{loading ?'Loading...':'Update'}</button>
+        <Link className="bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95" to={"/create-listing"}>
+        Create Listing</Link>
       </form>
       <div className="flex justify-between mt-5">
         
