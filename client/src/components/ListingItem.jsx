@@ -8,7 +8,7 @@ export default function ListingItem({ listing }) {
         <img
           src={
             listing.imageUrls[0] ||
-           'https://assets-global.website-files.com/620ec747459e13c7cf12a39e/625b10a58137b364b18df2ea_iStock-94179607.jpg'
+            'https://cdn.pixabay.com/photo/2018/11/29/21/19/hamburg-3846525_1280.jpg'
           }
           alt='listing cover'
           className='h-[320px] sm:h-[220px] w-full object-cover hover:scale-105 transition-scale duration-300'
@@ -29,7 +29,7 @@ export default function ListingItem({ listing }) {
           <p className='text-slate-500 mt-2 font-semibold '>
             $
             {listing.offer
-              ? listing.discountPrice.toLocaleString('en-US')
+              ? listing.discountPrice.toLocaleString('en-In')
               : listing.regularPrice.toLocaleString('en-US')}
             {listing.type === 'rent' && ' / month'}
           </p>
