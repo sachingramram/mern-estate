@@ -1,9 +1,12 @@
 import {FaSearch} from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import {useSelector} from 'react-redux'
+import { Link,useNavigate } from 'react-router-dom';
+import {useSelector} from 'react-redux';
+import { useEffect, useState } from 'react';
+
 
 export default function Header() {
-    const {currentUser}=useSelector(state => state.user)
+    const {currentUser}=useSelector(state => state.user);
+    const navigate = useNavigate();
   return (
     <header className='bg-slate-200 shadow-md'>
         <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
